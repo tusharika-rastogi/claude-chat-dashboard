@@ -1,4 +1,4 @@
-# chat-dashboard
+# claude-chat-dashboard
 
 A Claude skill that fetches your complete chat history, summarizes every conversation with technical detail, and renders a searchable, filterable dashboard inside claude.ai.
 
@@ -18,13 +18,13 @@ Run it once and get a full interactive view of everything you've worked on with 
 
 ### 1. Install the skill
 
-**Option A — Upload directly in claude.ai**
+**Option A: Upload directly in claude.ai**
 
 1. Download this repo as a zip, or clone it
 2. In claude.ai, go to **Settings, then Skills**
 3. Upload the `chat-dashboard` folder
 
-**Option B — Link a GitHub repo**
+**Option B: Link a GitHub repo**
 
 1. Fork this repo
 2. In claude.ai Settings, then Skills, paste your fork URL
@@ -54,7 +54,7 @@ Claude has a `recent_chats` tool available during live claude.ai conversation tu
 2. Summarize and tag each one using its built-in knowledge
 3. Inject the structured data into a React artifact and render it
 
-This is why the skill only works inside **claude.ai** — the `recent_chats` tool is injected by claude.ai into conversation turns and is not available in the public API or Claude Code.
+This is why the skill only works inside **claude.ai** - the `recent_chats` tool is injected by claude.ai into conversation turns and is not available in the public API or Claude Code.
 
 ## Why a skill and not an app
 
