@@ -1,8 +1,6 @@
 # chat-dashboard
 
-A Claude skill that fetches your complete chat history, summarizes every conversation with technical detail, and renders a searchable, filterable dashboard — all inside claude.ai.
-
-![Chat Dashboard Screenshot](screenshot.png)
+A Claude skill that fetches your complete chat history, summarizes every conversation with technical detail, and renders a searchable, filterable dashboard inside claude.ai.
 
 ## What it does
 
@@ -10,11 +8,11 @@ Run it once and get a full interactive view of everything you've worked on with 
 
 - Paginates through your **entire** chat history, not just the last 20
 - Generates a **technical summary** per chat: decisions made, tools used, open questions
-- **Auto-tags** each chat (pipeline, research, coding, job search, etc.)
+- **Auto-tags** each chat based on what is actually in the conversation, no fixed vocabulary
 - Shows **status** per chat: Active (unresolved), Pending (waiting on input), or Resolved
 - **Search** across titles, summaries, and tech stack in real time
 - **Filter** by tag and status
-- **Continue →** link on every card jumps straight back into that chat
+- **Continue** link on every card jumps straight back into that chat
 
 ## How to use it
 
@@ -23,13 +21,13 @@ Run it once and get a full interactive view of everything you've worked on with 
 **Option A — Upload directly in claude.ai**
 
 1. Download this repo as a zip, or clone it
-2. In claude.ai, go to **Settings → Skills**
+2. In claude.ai, go to **Settings, then Skills**
 3. Upload the `chat-dashboard` folder
 
 **Option B — Link a GitHub repo**
 
 1. Fork this repo
-2. In claude.ai Settings → Skills, paste your fork URL
+2. In claude.ai Settings, then Skills, paste your fork URL
 
 ### 2. Run it
 
@@ -46,7 +44,7 @@ Claude will fetch all your chats, summarize them, and render the dashboard as an
 
 ### 3. Refresh
 
-Click the **Refresh ↻** button inside the dashboard to re-fetch and re-summarize with the latest chats.
+Type "refresh my chat dashboard" or click the Refresh button inside the dashboard to re-fetch with the latest chats.
 
 ## How it works
 
@@ -62,11 +60,11 @@ This is why the skill only works inside **claude.ai** — the `recent_chats` too
 
 The `recent_chats` tool is session-scoped to the logged-in user and only available during a live claude.ai conversation turn. There is no public API endpoint for it. A standalone app cannot call it on another user's behalf.
 
-A skill is the correct format precisely because it runs inside the conversation turn where the tool is available — and it automatically uses the credentials of whoever is running it, so every user gets their own chat history with no authentication setup.
+A skill is the correct format precisely because it runs inside the conversation turn where the tool is available, and it automatically uses the credentials of whoever is running it, so every user gets their own chat history with no authentication setup.
 
 ## Tags
 
-Tags are generated dynamically from your actual chat content — there is no fixed vocabulary. Claude reads each conversation and invents 1-3 short lowercase tags that reflect what was discussed (e.g. `rna-seq`, `resume`, `recipe`, `tax-planning`, `debugging`). After processing all chats, near-duplicate tags are normalized into a single consistent label.
+Tags are generated dynamically from your actual chat content, there is no fixed vocabulary. Claude reads each conversation and invents 1-3 short lowercase tags that reflect what was discussed (e.g. `rna-seq`, `resume`, `recipe`, `tax-planning`, `debugging`). After processing all chats, near-duplicate tags are normalized into a single consistent label.
 
 The filter pills in the dashboard are built from whatever tags emerge, so two people with completely different chat histories will see completely different tag sets.
 
@@ -77,8 +75,12 @@ The filter pills in the dashboard are built from whatever tags emerge, so two pe
 
 ## Contributing
 
-PRs welcome. If you add new tag categories, improve the summarization prompt, or extend the artifact UI, open a PR with a brief description of what changed and why.
+PRs welcome. If you improve the summarization prompt, extend the artifact UI, or add new features, open a PR with a brief description of what changed and why.
 
 ## License
 
 MIT
+
+---
+
+Built by [Tusharika Rastogi](https://github.com/tusharika-rastogi)
